@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+// Widths & Heights
+$nav-w: 200px;
+
+// Fonts
+$ff-gen: "Quicksand", sans-serif;
+
+// Font sizes
+$fs-1: 1em;
+
+// Header Sizes
+$h1-1: 2rem;
+
+//Colours
+$light-grey: rgb(230, 228, 228);
+$dark-grey: rgb(59, 59, 59);
+
+//Border Style
+$border-gen: 2px solid $light-grey;
+$border-radius: 1rem;
+
+// Padding
+$pad-1: 1em;
+
+//Transition
+$trans-gen: 0.1s all ease-in-out;
+
+// Shadows
+$shadow-gen: 0 0px 0px rgba(247, 245, 245, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(240, 234, 234, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+$shadow-soft:0 3px 10px rgb(0 0 0 / 0.2);

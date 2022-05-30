@@ -1,18 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import IconButton from "../../Components/IconButton/IconButton";
+import NavigationLink from "./NavigationLink/NavigationLink";
+
 import "./Navbar.scss";
 
 export default function Navbar() {
   return (
-    <div className="nav">
-      <h1>This is the navbar</h1>
-      <Link to="/">
-        <IconButton text={"Dashboard"}/>
-      </Link>
-      <Link to="addBug">
-        <IconButton text={"Create Bug"}/>
-      </Link>
+    <div className="navbar">
+      <div className="nav">
+        <h3>
+          <i className="fa-solid fa-bug"></i> Bug Tracker
+        </h3>
+        <NavigationLink location="/" text="Dashboard" icon="fa-solid fa-table-columns" />
+        <NavigationLink location="Profile" text="Profile" icon="fa-solid fa-user" />
+        <NavigationLink location="addBug" text="Add" icon="fa-solid fa-circle-plus" />
+        <NavigationLink location="settings" text="settings" icon="fa-solid fa-gear" />
+      </div>
+      <div className="nav-top">
+        <p>Keanu Barnard</p>
+      </div>
     </div>
   );
 }

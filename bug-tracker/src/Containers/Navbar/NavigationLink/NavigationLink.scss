@@ -1,0 +1,30 @@
+@import "../../../Styles/variables.scss";
+
+.link-style {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  align-items: center;
+  padding: $pad-1;
+  text-decoration: none;
+  transition: $trans-gen;
+  i,
+  p {
+    text-decoration: none;
+    //font-weight: bold;
+    color: $dark-grey;
+  }
+}
+
+.link-style:hover {
+  background-color: $light-grey;
+}
+
+.link-style.active {
+  background-color: $dark-grey;
+  border-right-color: $dark-grey;
+  i,
+  p {
+    color: whitesmoke;
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../Styles/variables.scss";
+
+.icon-btn {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  align-items: center;
+  padding: $pad-1;
+  transition: all 0.1s ease-in-out;
+  i,
+  p {
+    text-decoration: none;
+    color: $dark-grey;
+  }
+}

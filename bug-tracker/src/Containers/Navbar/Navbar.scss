@@ -1,0 +1,22 @@
+@import "../../Styles/variables.scss";
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 200px;
+  height: 100vh;
+  background-color: white;
+  border-right: $border-gen;
+  box-shadow: $shadow-soft;
+
+  h3 {
+    text-align: center;
+    padding: $pad-1;
+    margin-bottom: 4rem;
+    font-weight: 400;
+    background-color: $dark-grey;
+    color: #fff;
+  }
+}
+
