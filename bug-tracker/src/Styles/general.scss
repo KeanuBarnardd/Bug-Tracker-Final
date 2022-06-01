@@ -1,43 +1,47 @@
-@import './variables.scss';
+@import "./variables.scss";
 
-
-*{
+* {
   box-sizing: border-box;
   font-family: $ff-gen;
   margin: 0;
   padding: 0;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 300;
   color: $dark-grey;
 }
 
-
-.content{
+.content {
   display: flex;
   justify-content: center;
 
   margin-left: $nav-w;
   margin-top: $nav-h;
-  .content-view{
+  .content-view {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: clamp(200px,90%,900px);
+    width: clamp(200px, 90%, 900px);
   }
 }
 
-select{
+select {
   font-size: $fs-1;
   padding: 0.5rem;
   width: 20%;
+  min-width: 100px;
   border: none;
   background-color: $light-grey;
   transition: $trans-gen;
 }
 
-select:hover{
+select:hover {
   background-color: $dark-grey;
   color: white;
 }

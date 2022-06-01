@@ -17,11 +17,36 @@
 }
 
 // Dark Hover
-.icon-btn:hover{
+.icon-btn:hover {
   background-color: $dark-grey;
   i,
   p {
     text-decoration: none;
     color: #fff;
   }
+}
+
+.icon-btn.submit {
+  background-color: $dark-grey;
+  border: 2px solid $dark-grey;
+  i,
+  p {
+    text-decoration: none;
+    color: #fff;
+  }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon-btn.submit:hover {
+  background-color: $light-grey;
+  border: 2px solid $dark-grey;
+  i,
+  p {
+    text-decoration: none;
+    color: $dark-grey;
+
+  }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

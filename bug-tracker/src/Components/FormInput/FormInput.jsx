@@ -1,11 +1,11 @@
-import React from 'react'
-import './FormInput.scss';
+import React from "react";
+import "./FormInput.scss";
 
-export default function FormInput({label}){
-  return( 
+export default function FormInput({ label, placeHolder , isInput }) {
+  return (
     <div className="form-input">
-      <label htmlFor="">{label}</label>
-      <input type="text" />
+      <h2 htmlFor="">{label}</h2>
+      {isInput ? <input type="text" placeholder={placeHolder} /> : <textarea placeholder={placeHolder} />}
     </div>
-  )
+  );
 }

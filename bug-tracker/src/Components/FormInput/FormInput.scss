@@ -1,0 +1,24 @@
+@import '../../Styles/variables.scss';
+
+.form-input{
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+  width: 85%;
+
+  input,textarea{
+    transition: $trans-gen;
+    border:none;
+    background-color: $light-grey;
+    padding: $pad-1;
+    font-size: $fs-1;
+    resize: none;
+  }
+
+  input:hover,textarea:hover{
+    background-color: $dark-grey;
+    color: #fff;
+  }
+}
