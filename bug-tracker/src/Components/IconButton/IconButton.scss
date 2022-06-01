@@ -7,9 +7,21 @@
   align-items: center;
   padding: $pad-1;
   transition: all 0.1s ease-in-out;
+  height: 100%;
+  cursor: pointer;
   i,
   p {
     text-decoration: none;
     color: $dark-grey;
+  }
+}
+
+// Dark Hover
+.icon-btn:hover{
+  background-color: $dark-grey;
+  i,
+  p {
+    text-decoration: none;
+    color: #fff;
   }
 }

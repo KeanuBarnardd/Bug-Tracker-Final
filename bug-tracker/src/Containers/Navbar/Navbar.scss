@@ -7,7 +7,7 @@
   width: 200px;
   height: 100vh;
   background-color: white;
-  border-right: $border-gen;
+  //border-right: $border-gen;
   box-shadow: $shadow-soft;
 
   h3 {
@@ -20,3 +20,15 @@
   }
 }
 
+.nav-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: space-between;
+  height: $nav-h;
+  margin-left: $nav-w;
+  padding: 0 1.5rem;
+  z-index: -1;
+  background-color: $light-grey;
+  box-shadow: $shadow-soft;
+}
