@@ -1,0 +1,40 @@
+@import '../../Styles/variables.scss';
+
+.bug{
+  padding: $pad-1;
+  border-left: $card-border-left;
+  border-color: $col-high;
+  box-shadow: $shadow-soft;
+
+  .title-version{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.7rem;
+  }
+
+  h3{
+    margin-top: 1.2rem;
+  }
+
+  .bug-text{
+    width: 80%;
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid $dark-grey;
+  }
+
+  .bottom-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    .button-container{
+      margin-left: 1rem;
+      display: flex;
+      background-color: $light-grey;
+      border-left: 3px solid $dark-grey;
+    }
+  }
+}

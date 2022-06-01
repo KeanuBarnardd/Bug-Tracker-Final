@@ -4,7 +4,7 @@
   width: 100%;
   padding: $pad-1;
   //background-color: $light-grey;
-  border-left: 10px solid $light-grey;
+  border-left: $card-border-left;
   box-shadow: $shadow-soft;
   h1{
     font-size: 4rem;
