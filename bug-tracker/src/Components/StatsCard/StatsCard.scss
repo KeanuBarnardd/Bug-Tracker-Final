@@ -1,0 +1,30 @@
+@import '../../Styles/variables.scss';
+
+.stats-card{
+  width: 100%;
+  padding: $pad-1;
+  //background-color: $light-grey;
+  border-left: 10px solid $light-grey;
+  box-shadow: $shadow-soft;
+  h1{
+    font-size: 4rem;
+    text-align: center;
+  }
+}
+
+
+
+
+
+.stats-card.low{
+  border-left: 10px solid $col-low;
+}
+.stats-card.medium{
+  border-left: 10px solid $col-med;
+}
+.stats-card.high{
+  border-left: 10px solid $col-high;
+}
+.stats-card.resolved{
+  border-left: 10px solid $col-resolved;
+}
