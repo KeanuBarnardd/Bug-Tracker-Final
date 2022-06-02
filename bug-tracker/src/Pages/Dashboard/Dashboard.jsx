@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import Bug from "../../Components/Bug/Bug";
 import StatsCard from "../../Components/StatsCard/StatsCard";
 import "./Dashboard.scss";
 
 export default function Dashboard({ bugList, getPriorityHandler }) {
+  const [filterPriority, setFilterPriority] = useState("all");
+  
+  const filteredList = bugList.filter(function(bug){
+    if(filterPriority !== 'all'){
+      return bug.priority === filterPriority;
+    }else{
+      return bug;
+    }
+  });
+
   return (
     <div className="container-col content">
       <div className="content-view">
@@ -15,14 +25,14 @@ export default function Dashboard({ bugList, getPriorityHandler }) {
           <StatsCard priority="resolved" title="Resolved" value="7" />
         </div>
         <h1 className="head-2">All your current bugs</h1>
-        <select name="" id="">
+        <select onChange={(e)=> setFilterPriority(e.target.value)} name="" id="">
           <option value="all">All</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
         <div className="bug-grid">
-          {bugList.map((bug) => (
+          {filteredList.map((bug) => (
             <Bug
               title={bug.title}
               description={bug.description}

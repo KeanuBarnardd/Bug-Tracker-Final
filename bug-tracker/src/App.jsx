@@ -16,7 +16,7 @@ export default function App() {
     priority: "low",
     date: "00/00/00",
     version: "0",
-    id: generateRandomId(),
+    id: "",
   });
 
   const getInputHandler = (type) => (e) => {
@@ -28,11 +28,14 @@ export default function App() {
 
   const createBugHandler = (e) => {
     e.preventDefault();
+    // Generate our ID when we create this bug...
+    setBug((bug) => ({
+      ...bug,
+      id: generateRandomId(),
+    }));
     // Add our bug to our list of bugs
-    setBugList((bugList) => ([
-      ...bugList,
-      bug,
-    ]));
+    setBugList((bugList) => [...bugList, bug]);
+    console.log(bugList);
   };
 
   const getPriorityHandler = (i) => {
@@ -49,7 +52,16 @@ export default function App() {
     <div className="app">
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" element={<Dashboard bugList={bugList} getPriorityHandler={getPriorityHandler} />} />
+        <Route
+          path="/"
+          element={
+            <Dashboard
+              bugList={bugList}
+              getPriorityHandler={getPriorityHandler}
+              generateRandomId={generateRandomId}
+            />
+          }
+        />
         <Route
           path="/AddBug"
           element={
@@ -71,8 +83,6 @@ export default function App() {
 const generateRandomId = () => {
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-  for (var i = 0; i < 5; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
-
+  for (var i = 0; i < 20; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
   return text;
 };
