@@ -3,7 +3,7 @@ import Bug from "../../Components/Bug/Bug";
 import StatsCard from "../../Components/StatsCard/StatsCard";
 import "./Dashboard.scss";
 
-export default function Dashboard() {
+export default function Dashboard({ bugList, getPriorityHandler }) {
   return (
     <div className="container-col content">
       <div className="content-view">
@@ -22,13 +22,18 @@ export default function Dashboard() {
           <option value="high">High</option>
         </select>
         <div className="bug-grid">
-          <Bug
-            description={"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi laudantium ipsum iste ex, quo dolorum aliquam doloribus sunt? Tenetur consequatur corrupti quisquam excepturi asperiores provident dolorum! Cumque dolor ratione sapiente?"}
-            steps="lorem ipsum hello hows it going today your the best in the world"
-            date="00/00/00"
-            title={"Fix header box container"}
-            version={"0.1"}
-          />
+          {bugList.map((bug) => (
+            <Bug
+              title={bug.title}
+              description={bug.description}
+              steps={bug.steps}
+              version={bug.version}
+              date={bug.date}
+              key={bug.id}
+              bugData={bug}
+              getPriorityHandler={getPriorityHandler}
+            />
+          ))}
         </div>
       </div>
     </div>

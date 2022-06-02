@@ -8,6 +8,7 @@ import Settings from "./Pages/Settings/Settings";
 import "./Styles/general.scss";
 
 export default function App() {
+  const [bugList, setBugList] = useState([]);
   const [bug, setBug] = useState({
     title: "",
     description: "",
@@ -15,6 +16,7 @@ export default function App() {
     priority: "low",
     date: "00/00/00",
     version: "0",
+    id: generateRandomId(),
   });
 
   const getInputHandler = (type) => (e) => {
@@ -26,8 +28,11 @@ export default function App() {
 
   const createBugHandler = (e) => {
     e.preventDefault();
-    setBug();
-    console.log(bug);
+    // Add our bug to our list of bugs
+    setBugList((bugList) => ([
+      ...bugList,
+      bug,
+    ]));
   };
 
   const getPriorityHandler = (i) => {
@@ -44,7 +49,7 @@ export default function App() {
     <div className="app">
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Dashboard bugList={bugList} getPriorityHandler={getPriorityHandler} />} />
         <Route
           path="/AddBug"
           element={
@@ -62,3 +67,12 @@ export default function App() {
     </div>
   );
 }
+
+const generateRandomId = () => {
+  var text = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for (var i = 0; i < 5; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+  return text;
+};

@@ -1,23 +1,23 @@
-@import '../../Styles/variables.scss';
+@import "../../Styles/variables.scss";
 
-.bug{
+.bug {
   padding: $pad-1;
   border-left: $card-border-left;
   border-color: $col-high;
   box-shadow: $shadow-soft;
 
-  .title-version{
+  .title-version {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 0.7rem;
   }
 
-  h3{
+  h3 {
     margin-top: 1.2rem;
   }
 
-  .bug-text{
+  .bug-text {
     width: 80%;
     margin-top: 0.5rem;
     margin-left: 1rem;
@@ -25,16 +25,26 @@
     border-left: 3px solid $dark-grey;
   }
 
-  .bottom-container{
+  .bottom-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
-    .button-container{
+    .button-container {
       margin-left: 1rem;
       display: flex;
       background-color: $light-grey;
       border-left: 3px solid $dark-grey;
     }
   }
+}
+
+.bug.low {
+  border-color: $col-low;
+}
+.bug.medium {
+  border-color: $col-med;
+}
+.bug.high {
+  border-color: $col-high;
 }
