@@ -8,7 +8,6 @@ import Settings from "./Pages/Settings/Settings";
 import "./Styles/general.scss";
 
 export default function App() {
-
   const [bug, setBug] = useState({
     title: "",
     description: "",
@@ -19,23 +18,44 @@ export default function App() {
   });
 
   const getInputHandler = (type) => (e) => {
-    setBug(bug=>({
+    setBug((bug) => ({
       ...bug,
-      [type]: e.target.value
-    }))
+      [type]: e.target.value,
+    }));
   };
 
-  const createBugHandler =(e)=>{
+  const createBugHandler = (e) => {
     e.preventDefault();
+    setBug();
     console.log(bug);
-  }
+  };
+
+  const getPriorityHandler = (i) => {
+    if (i.priority === "low") {
+      return "low";
+    } else if (i.priority === "medium") {
+      return "medium";
+    } else {
+      return "high";
+    }
+  };
 
   return (
     <div className="app">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/AddBug" element={<AddBug createBugHandler={createBugHandler} getInputHandler={getInputHandler} />} />
+        <Route
+          path="/AddBug"
+          element={
+            <AddBug
+              bug={bug}
+              getPriorityHandler={getPriorityHandler}
+              createBugHandler={createBugHandler}
+              getInputHandler={getInputHandler}
+            />
+          }
+        />
         <Route path="/Profile" element={<Profile />} />
         <Route path="/Settings" element={<Settings />} />
       </Routes>

@@ -3,12 +3,12 @@ import FormInput from "../../Components/FormInput/FormInput";
 import IconButton from "../../Components/IconButton/IconButton";
 import "./AddBug.scss";
 
-export default function AddBug({ getInputHandler, createBugHandler }) {
+export default function AddBug({ getInputHandler, createBugHandler, getPriorityHandler, bug }) {
   return (
     <div className="container-col content">
       <div className="content-view">
         <h1>Lets add a bug to your list</h1>
-        <form action="">
+        <form action="" className={`${getPriorityHandler(bug)}`}>
           <FormInput
             getInputHandler={getInputHandler("title")}
             label="Title"

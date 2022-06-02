@@ -50,3 +50,15 @@ form > * {
   margin-left: auto;
   margin-right: auto;
 }
+
+form.low{
+  border-color: $col-low;
+}
+
+form.medium{
+  border-color: $col-med;
+}
+
+form.high{
+  border-color: $col-high;
+}
