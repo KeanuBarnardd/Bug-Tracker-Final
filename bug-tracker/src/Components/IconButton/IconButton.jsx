@@ -2,11 +2,11 @@ import React from "react";
 
 import "./IconButton.scss";
 
-export default function IconButton({ icon, text , type}) {
+export default function IconButton({ icon, text , type, buttonClick}) {
   return (
-    <div className={`icon-btn ${type}`}>
+    <button onClick={buttonClick} className={`icon-btn ${type}`}>
       <i className={icon}></i>
       <p>{text}</p>
-    </div>
+    </button>
   );
 }

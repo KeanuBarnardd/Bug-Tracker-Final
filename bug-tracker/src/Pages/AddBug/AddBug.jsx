@@ -3,20 +3,35 @@ import FormInput from "../../Components/FormInput/FormInput";
 import IconButton from "../../Components/IconButton/IconButton";
 import "./AddBug.scss";
 
-export default function AddBug() {
+export default function AddBug({ getInputHandler, createBugHandler }) {
   return (
     <div className="container-col content">
       <div className="content-view">
         <h1>Lets add a bug to your list</h1>
         <form action="">
-          <FormInput label="Title" isInput={true} placeHolder="Give your bug a title"/>
-          <FormInput label="Description" isInput={false} placeHolder="Describe what is going wrong" />
-          <FormInput label="Steps" isInput={false} placeHolder="List the steps that need to be done to resolve this bug"/>
+          <FormInput
+            getInputHandler={getInputHandler("title")}
+            label="Title"
+            isInput={true}
+            placeHolder="Give your bug a title"
+          />
+          <FormInput
+            getInputHandler={getInputHandler("description")}
+            label="Description"
+            isInput={false}
+            placeHolder="Describe what is going wrong"
+          />
+          <FormInput
+            getInputHandler={getInputHandler("steps")}
+            label="Steps"
+            isInput={false}
+            placeHolder="List the steps that need to be done to resolve this bug"
+          />
 
           <div className="selectors">
             <div className="s-input">
               <h2 htmlFor="">Priority</h2>
-              <select name="" id="">
+              <select name="" id="" onChange={getInputHandler("priority")}>
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
                 <option value="high">High</option>
@@ -25,12 +40,22 @@ export default function AddBug() {
 
             <div className="s-input">
               <h2 htmlFor="">Date</h2>
-              <input className="date-input" type="Date" />
+              <input className="date-input" type="Date" onChange={getInputHandler("date")} />
             </div>
           </div>
 
-          <FormInput label="Version" isInput={true} placeHolder="What version of the Application are we on? " />
-          <IconButton type="submit" text={"Submit"} icon={"fa-solid fa-circle-plus"} />
+          <FormInput
+            getInputHandler={getInputHandler("version")}
+            label="Version"
+            isInput={true}
+            placeHolder="What version of the Application are we on? "
+          />
+          <IconButton
+            buttonClick={createBugHandler}
+            type="submit"
+            text={"Submit"}
+            icon={"fa-solid fa-circle-plus"}
+          />
         </form>
       </div>
     </div>
