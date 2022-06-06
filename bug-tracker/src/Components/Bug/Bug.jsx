@@ -19,7 +19,7 @@ export default function Bug({ title, description, steps, version, date, bugData 
       <div className="bottom-container">
         <div className="button-container">
           <IconButton icon="fa-solid fa-pen-to-square" text="Edit" />
-          <IconButton icon="fa-solid fa-check" buttonClick={(e)=> resolveBugHandler(bugData.id)} text="Resolve" />
+          <IconButton icon="fa-solid fa-check" buttonClick={(e)=> resolveBugHandler(bugData.id, bugData.priority)} text="Resolve" />
         </div>
         <span>
           <p>{date}</p>

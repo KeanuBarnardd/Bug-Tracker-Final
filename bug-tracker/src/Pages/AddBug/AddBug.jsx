@@ -51,7 +51,7 @@ export default function AddBug({ getInputHandler, createBugHandler, getPriorityH
             placeHolder="What version of the Application are we on? "
           />
           <IconButton
-            buttonClick={createBugHandler}
+            buttonClick={createBugHandler(bug.priority)}
             type="submit"
             text={"Submit"}
             icon={"fa-solid fa-circle-plus"}

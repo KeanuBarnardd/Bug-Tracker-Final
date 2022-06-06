@@ -9,6 +9,14 @@ import "./Styles/general.scss";
 
 export default function App() {
   const [bugList, setBugList] = useState([]);
+
+  const [bugDataCount, setBugDataCount] = useState({
+    low: 0,
+    medium: 0,
+    high: 0,
+    resolved: 0,
+  });
+
   const [bug, setBug] = useState({
     title: "",
     description: "",
@@ -31,20 +39,21 @@ export default function App() {
       return bug.id === id;
     });
     if (index !== -1) {
-      console.log(" WE HAVE A MATCH ");
       return index;
     } else {
       return console.error("Cannot find Bug ID");
     }
   };
 
-  const resolveBugHandler=(id)=>{
-    let newList = bugList; 
-    newList.splice(getBugIndex(id),1);
+  const resolveBugHandler = (id, status) => {
+    let newList = bugList;
+    newList.splice(getBugIndex(id), 1);
     setBugList([...newList]);
-  }
+    updateCount(status,true);
+    updateCount('resolved', false);
+  };
 
-  const createBugHandler = (e) => {
+  const createBugHandler =(priority)=>(e) => {
     e.preventDefault();
     // Generate our ID when we create this bug...
     setBug((bug) => ({
@@ -52,6 +61,7 @@ export default function App() {
       id: generateRandomId(),
     }));
     // Add our bug to our list of bugs
+    updateCount(priority,false);
     setBugList((bugList) => [...bugList, bug]);
   };
 
@@ -62,6 +72,20 @@ export default function App() {
       return "medium";
     } else {
       return "high";
+    }
+  };
+
+  const updateCount = (status, remove) => {
+    if (remove) {
+      setBugDataCount((bugData) => ({
+        ...bugData,
+        [status]: bugData[status] - 1,
+      }));
+    } else {
+      setBugDataCount((bugData) => ({
+        ...bugData,
+        [status]: bugData[status] + 1,
+      }));
     }
   };
 
@@ -77,6 +101,8 @@ export default function App() {
               getPriorityHandler={getPriorityHandler}
               generateRandomId={generateRandomId}
               resolveBugHandler={resolveBugHandler}
+              updateCount={updateCount}
+              bugDataCount={bugDataCount}
             />
           }
         />
