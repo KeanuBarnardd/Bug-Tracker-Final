@@ -9,6 +9,7 @@ export default function NavigationLink({
   notification,
   displayNotifcation,
   setNotificationValue,
+  isNotif,
 }) {
   // Reset our Notification Back to 0 when clicked.
   const resetNotifications = () => {
@@ -16,7 +17,11 @@ export default function NavigationLink({
   };
 
   return (
-    <NavLink onClick={resetNotifications} className="link-style notification" to={location}>
+    <NavLink
+      onClick={isNotif ? resetNotifications : null}
+      className="link-style notification"
+      to={location}
+    >
       <i className={icon}></i>
       <p>{text}</p>
       {displayNotifcation === "true" ? (

@@ -16,6 +16,7 @@ export default function Navbar({ displayNotifcation, notificationValue, setNotif
           notification={notificationValue}
           displayNotifcation={displayNotifcation}
           setNotificationValue={setNotificationValue}
+          isNotif={true}
         />
         <NavigationLink location="Profile" text="Profile" icon="fa-solid fa-user" />
         <NavigationLink location="addBug" text="Add" icon="fa-solid fa-circle-plus" />

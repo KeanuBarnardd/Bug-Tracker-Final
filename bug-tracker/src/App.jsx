@@ -64,7 +64,7 @@ export default function App() {
       id: generateRandomId(),
     }));
 
-    displayPopUp();
+    displayPopUpHandler();
     // Check & Update notification value,
     setNotificationValue(notificationValue + 1);
     //update all count values & add bug to bug list.
@@ -104,16 +104,17 @@ export default function App() {
     }
   };
 
-  const displayPopUp = () => {
-    setDisplayNotification(true);
+  const displayPopUpHandler = () => {
+    setDisplayPopup(true);
+    console.log(`Is ${displayPopup} should be true.`)
     const timerPopUp = setTimeout(() => {
       // After 3 seconds set the timer to false
-      setDisplayNotification(false);
-      console.log("Timer is working....");
+      setDisplayPopup(false);
+      console.log(`Is ${displayPopup} should be false.`)
     }, 3000);
 
     return () => {
-      console.log("Timer has finsished");
+      console.log(`Is ${displayPopup} should be false.`)
       clearTimeout(timerPopUp);
     };
   };
