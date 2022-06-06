@@ -16,6 +16,19 @@
   }
 }
 
+.link-style.notification{
+  .notifcation{
+    span{
+      padding-left: 0.4rem;
+      padding-right: 0.4rem;
+      background-color: $col-high;
+      border-radius: 1rem;
+      color: whitesmoke;
+    }
+  }
+}
+
+
 .link-style:hover {
   background-color: $light-grey;
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Containers/Navbar/Navbar";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -9,6 +9,10 @@ import "./Styles/general.scss";
 
 export default function App() {
   const [bugList, setBugList] = useState([]);
+
+  // Notification States
+  const [displayNotification, setDisplayNotification] = useState("false");
+  const [notificationValue, setNotificationValue] = useState(0);
 
   const [bugDataCount, setBugDataCount] = useState({
     low: 0,
@@ -49,20 +53,30 @@ export default function App() {
     let newList = bugList;
     newList.splice(getBugIndex(id), 1);
     setBugList([...newList]);
-    updateCount(status,true);
-    updateCount('resolved', false);
+    updateCount(status, true);
+    updateCount("resolved", false);
   };
 
-  const createBugHandler =(priority)=>(e) => {
+  const createBugHandler = (priority) => (e) => {
     e.preventDefault();
-    // Generate our ID when we create this bug...
     setBug((bug) => ({
       ...bug,
       id: generateRandomId(),
     }));
-    // Add our bug to our list of bugs
-    updateCount(priority,false);
+    // Check & Update notification value,
+    setNotificationValue(notificationValue + 1);
+
+    //update all count values & add bug to bug list.
+    updateCount(priority, false);
     setBugList((bugList) => [...bugList, bug]);
+  };
+
+  const updateNotifcationHandler = () => {
+    if (notificationValue === 0 || notificationValue < 0) {
+      setDisplayNotification("false");
+    } else {
+      setDisplayNotification("true");
+    }
   };
 
   const getPriorityHandler = (i) => {
@@ -89,9 +103,18 @@ export default function App() {
     }
   };
 
+  useEffect(() => {
+    // Update our notification Value
+    updateNotifcationHandler();
+  });
+
   return (
     <div className="app">
-      <Navbar></Navbar>
+      <Navbar
+        setNotificationValue={setNotificationValue}
+        notificationValue={notificationValue}
+        displayNotifcation={displayNotification}
+      ></Navbar>
       <Routes>
         <Route
           path="/"
