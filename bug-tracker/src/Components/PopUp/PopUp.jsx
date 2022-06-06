@@ -2,9 +2,8 @@ import React from "react";
 
 import "./PopUp.scss";
 
-export default function PopUp({ displayPopUp }) {
-  if (!displayPopUp) {
-    //console.log("Pop up is not being displayed");
+export default function PopUp({ displayPopup }) {
+  if(!displayPopup){
     return null;
   }
 

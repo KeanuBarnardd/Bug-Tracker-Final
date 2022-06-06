@@ -5,8 +5,8 @@ Todo List for Application
 - Display current bug priority Types (Done)
 - Add a notification display when bug is added reset on link click.(Done)
 - Bug create notification (done)
-- Fix error with type is not a function
-- Create a resolved bugs list section
+- Fix error with type is not a function (done)
+- Create a resolved bugs list section 
 
 
 

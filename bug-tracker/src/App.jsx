@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./Containers/Navbar/Navbar";
 import Dashboard from "./Pages/Dashboard/Dashboard";
@@ -9,18 +9,6 @@ import "./Styles/general.scss";
 
 export default function App() {
   const [bugList, setBugList] = useState([]);
-
-  // Notification & Popu States
-  const [displayNotification, setDisplayNotification] = useState("false");
-  const [notificationValue, setNotificationValue] = useState(0);
-  const [displayPopup, setDisplayPopup] = useState(false);
-  const [bugDataCount, setBugDataCount] = useState({
-    low: 0,
-    medium: 0,
-    high: 0,
-    resolved: 0,
-  });
-
   const [bug, setBug] = useState({
     title: "",
     description: "",
@@ -30,6 +18,18 @@ export default function App() {
     version: "0",
     id: generateRandomId(),
   });
+  const [bugDataCount, setBugDataCount] = useState({
+    low: 0,
+    medium: 0,
+    high: 0,
+    resolved: 0,
+  });
+
+  // Notification & Popup States
+  const [displayNotification, setDisplayNotification] = useState("false");
+  const [notificationValue, setNotificationValue] = useState(0);
+  const [displayPopup, setDisplayPopup] = useState(false);
+  const popUpRef = useRef(null);
 
   const getInputHandler = (type) => (e) => {
     setBug((bug) => ({
@@ -63,8 +63,8 @@ export default function App() {
       ...bug,
       id: generateRandomId(),
     }));
-
-    displayPopUpHandler();
+    // Display that we have created our bug
+    displayPopupHandler();
     // Check & Update notification value,
     setNotificationValue(notificationValue + 1);
     //update all count values & add bug to bug list.
@@ -78,6 +78,13 @@ export default function App() {
     } else {
       setDisplayNotification("true");
     }
+  };
+
+  const displayPopupHandler = () => {
+    setDisplayPopup(true);
+    popUpRef.current = setTimeout(() => {
+      setDisplayPopup(false);
+    }, 3000);
   };
 
   const getPriorityHandler = (i) => {
@@ -104,25 +111,13 @@ export default function App() {
     }
   };
 
-  const displayPopUpHandler = () => {
-    setDisplayPopup(true);
-    console.log(`Is ${displayPopup} should be true.`)
-    const timerPopUp = setTimeout(() => {
-      // After 3 seconds set the timer to false
-      setDisplayPopup(false);
-      console.log(`Is ${displayPopup} should be false.`)
-    }, 3000);
-
-    return () => {
-      console.log(`Is ${displayPopup} should be false.`)
-      clearTimeout(timerPopUp);
-    };
-  };
-
   useEffect(() => {
     // Update our notification Value
     updateNotifcationHandler();
-  });
+    // Clear the intervel when timer runs out
+
+    return () => clearTimeout(popUpRef.current);
+  }, []);
 
   return (
     <div className="app">
