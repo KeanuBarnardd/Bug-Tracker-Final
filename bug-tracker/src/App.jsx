@@ -10,10 +10,10 @@ import "./Styles/general.scss";
 export default function App() {
   const [bugList, setBugList] = useState([]);
 
-  // Notification States
+  // Notification & Popu States
   const [displayNotification, setDisplayNotification] = useState("false");
   const [notificationValue, setNotificationValue] = useState(0);
-
+  const [displayPopup, setDisplayPopup] = useState(false);
   const [bugDataCount, setBugDataCount] = useState({
     low: 0,
     medium: 0,
@@ -63,9 +63,10 @@ export default function App() {
       ...bug,
       id: generateRandomId(),
     }));
+
+    displayPopUp();
     // Check & Update notification value,
     setNotificationValue(notificationValue + 1);
-
     //update all count values & add bug to bug list.
     updateCount(priority, false);
     setBugList((bugList) => [...bugList, bug]);
@@ -103,6 +104,20 @@ export default function App() {
     }
   };
 
+  const displayPopUp = () => {
+    setDisplayNotification(true);
+    const timerPopUp = setTimeout(() => {
+      // After 3 seconds set the timer to false
+      setDisplayNotification(false);
+      console.log("Timer is working....");
+    }, 3000);
+
+    return () => {
+      console.log("Timer has finsished");
+      clearTimeout(timerPopUp);
+    };
+  };
+
   useEffect(() => {
     // Update our notification Value
     updateNotifcationHandler();
@@ -137,6 +152,7 @@ export default function App() {
               getPriorityHandler={getPriorityHandler}
               createBugHandler={createBugHandler}
               getInputHandler={getInputHandler}
+              displayPopup={displayPopup}
             />
           }
         />

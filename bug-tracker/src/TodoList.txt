@@ -3,4 +3,23 @@ Todo List for Application
 
 - Delete bugs from Array (Done)
 - Display current bug priority Types (Done)
-- Add a notification display when bug is added reset on link click.
+- Add a notification display when bug is added reset on link click.(Done)
+- Bug create notification 
+
+
+
+
+
+
+
+
+
+
+Brain storm 
+
+
+if display prop = false - dont display 
+
+click button display pop = set display popup to true for 3 seconds
+
+return to false. 

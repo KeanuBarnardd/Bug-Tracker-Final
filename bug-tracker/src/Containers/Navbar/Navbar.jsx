@@ -2,14 +2,21 @@ import React from "react";
 import NavigationLink from "./NavigationLink/NavigationLink";
 
 import "./Navbar.scss";
-import IconButton from './../../Components/IconButton/IconButton';
+import IconButton from "./../../Components/IconButton/IconButton";
 
-export default function Navbar({displayNotifcation,notificationValue, setNotificationValue}) {
+export default function Navbar({ displayNotifcation, notificationValue, setNotificationValue }) {
   return (
     <div className="navbar">
       <div className="nav">
         <h3>Bug Tracker</h3>
-        <NavigationLink location="/" text="Dashboard" icon="fa-solid fa-table-columns" notification={notificationValue} displayNotifcation={displayNotifcation} setNotificationValue={setNotificationValue}/>
+        <NavigationLink
+          location="/"
+          text="Dashboard"
+          icon="fa-solid fa-table-columns"
+          notification={notificationValue}
+          displayNotifcation={displayNotifcation}
+          setNotificationValue={setNotificationValue}
+        />
         <NavigationLink location="Profile" text="Profile" icon="fa-solid fa-user" />
         <NavigationLink location="addBug" text="Add" icon="fa-solid fa-circle-plus" />
         <NavigationLink location="settings" text="settings" icon="fa-solid fa-gear" />

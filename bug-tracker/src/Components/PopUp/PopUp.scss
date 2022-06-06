@@ -1,0 +1,9 @@
+@import '../../Styles/variables.scss';
+
+.pop-up{
+  border: $border-gen;
+  border-color: $col-resolved;
+  color: $dark-grey;
+  background-color: $col-resolved;
+  padding: $pad-1;
+}

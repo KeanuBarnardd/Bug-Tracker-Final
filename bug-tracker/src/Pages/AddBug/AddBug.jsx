@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FormInput from "../../Components/FormInput/FormInput";
 import IconButton from "../../Components/IconButton/IconButton";
+import PopUp from "../../Components/PopUp/PopUp";
+
 import "./AddBug.scss";
 
-export default function AddBug({ getInputHandler, createBugHandler, getPriorityHandler, bug }) {
+export default function AddBug({ getInputHandler, createBugHandler, getPriorityHandler, bug , displayPopup}) {
+
   return (
     <div className="container-col content">
       <div className="content-view">
@@ -50,6 +53,8 @@ export default function AddBug({ getInputHandler, createBugHandler, getPriorityH
             isInput={true}
             placeHolder="What version of the Application are we on? "
           />
+          <PopUp displayPopup={displayPopup}/>
+
           <IconButton
             buttonClick={createBugHandler(bug.priority)}
             type="submit"
