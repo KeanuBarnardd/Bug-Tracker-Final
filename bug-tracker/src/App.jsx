@@ -16,7 +16,7 @@ export default function App() {
     priority: "low",
     date: "00/00/00",
     version: "0",
-    id: "",
+    id: generateRandomId(),
   });
 
   const getInputHandler = (type) => (e) => {
@@ -25,6 +25,24 @@ export default function App() {
       [type]: e.target.value,
     }));
   };
+
+  const getBugIndex = (id) => {
+    let index = bugList.findIndex((bug) => {
+      return bug.id === id;
+    });
+    if (index !== -1) {
+      console.log(" WE HAVE A MATCH ");
+      return index;
+    } else {
+      return console.error("Cannot find Bug ID");
+    }
+  };
+
+  const resolveBugHandler=(id)=>{
+    let newList = bugList; 
+    newList.splice(getBugIndex(id),1);
+    setBugList([...newList]);
+  }
 
   const createBugHandler = (e) => {
     e.preventDefault();
@@ -35,7 +53,6 @@ export default function App() {
     }));
     // Add our bug to our list of bugs
     setBugList((bugList) => [...bugList, bug]);
-    console.log(bugList);
   };
 
   const getPriorityHandler = (i) => {
@@ -59,6 +76,7 @@ export default function App() {
               bugList={bugList}
               getPriorityHandler={getPriorityHandler}
               generateRandomId={generateRandomId}
+              resolveBugHandler={resolveBugHandler}
             />
           }
         />

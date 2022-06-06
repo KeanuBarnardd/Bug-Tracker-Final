@@ -3,7 +3,7 @@ import IconButton from "../IconButton/IconButton";
 
 import "./Bug.scss";
 
-export default function Bug({ title, description, steps, version, date, bugData ,getPriorityHandler}) {
+export default function Bug({ title, description, steps, version, date, bugData ,getPriorityHandler, resolveBugHandler}) {
   return (
     <div className={`bug ${getPriorityHandler(bugData)}`}>
       <div className="title-version">
@@ -19,7 +19,7 @@ export default function Bug({ title, description, steps, version, date, bugData 
       <div className="bottom-container">
         <div className="button-container">
           <IconButton icon="fa-solid fa-pen-to-square" text="Edit" />
-          <IconButton icon="fa-solid fa-check" text="Resolve" />
+          <IconButton icon="fa-solid fa-check" buttonClick={(e)=> resolveBugHandler(bugData.id)} text="Resolve" />
         </div>
         <span>
           <p>{date}</p>

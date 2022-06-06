@@ -3,7 +3,7 @@ import Bug from "../../Components/Bug/Bug";
 import StatsCard from "../../Components/StatsCard/StatsCard";
 import "./Dashboard.scss";
 
-export default function Dashboard({ bugList, getPriorityHandler }) {
+export default function Dashboard({ bugList, getPriorityHandler, resolveBugHandler }) {
   const [filterPriority, setFilterPriority] = useState("all");
   
   const filteredList = bugList.filter(function(bug){
@@ -32,16 +32,18 @@ export default function Dashboard({ bugList, getPriorityHandler }) {
           <option value="high">High</option>
         </select>
         <div className="bug-grid">
-          {filteredList.map((bug) => (
+          {filteredList.map((bug,key) => (
             <Bug
               title={bug.title}
               description={bug.description}
               steps={bug.steps}
               version={bug.version}
               date={bug.date}
-              key={bug.id}
+              key={key}
+              index={key}
               bugData={bug}
               getPriorityHandler={getPriorityHandler}
+              resolveBugHandler={resolveBugHandler}
             />
           ))}
         </div>

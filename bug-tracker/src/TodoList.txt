@@ -1,0 +1,6 @@
+Todo List for Application 
+
+
+- Delete bugs from Array (Done)
+- Display current bug priority Types
+- 
