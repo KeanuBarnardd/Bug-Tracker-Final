@@ -5,8 +5,13 @@ import PopUp from "../../Components/PopUp/PopUp";
 
 import "./AddBug.scss";
 
-export default function AddBug({ getInputHandler, createBugHandler, getPriorityHandler, bug , displayPopup}) {
-
+export default function AddBug({
+  getInputHandler,
+  createBugHandler,
+  getPriorityHandler,
+  bug,
+  displayPopup,
+}) {
   return (
     <div className="container-col content">
       <div className="content-view">
@@ -53,7 +58,6 @@ export default function AddBug({ getInputHandler, createBugHandler, getPriorityH
             isInput={true}
             placeHolder="What version of the Application are we on? "
           />
-          <PopUp displayPopup={displayPopup}/>
 
           <IconButton
             buttonClick={createBugHandler(bug.priority)}
@@ -61,6 +65,7 @@ export default function AddBug({ getInputHandler, createBugHandler, getPriorityH
             text={"Submit"}
             icon={"fa-solid fa-circle-plus"}
           />
+          <PopUp displayPopup={displayPopup} />
         </form>
       </div>
     </div>

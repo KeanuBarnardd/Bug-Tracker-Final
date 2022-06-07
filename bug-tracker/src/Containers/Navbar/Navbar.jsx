@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavigationLink from "./NavigationLink/NavigationLink";
 
 import "./Navbar.scss";
 import IconButton from "./../../Components/IconButton/IconButton";
 
-export default function Navbar({ displayNotifcation, notificationValue, setNotificationValue }) {
+export default function Navbar({
+  displayNotifcation,
+  notificationValue,
+  setNotificationValue,
+  setDisplayNotification,
+}) {
+  const updateNotifcationHandler = () => {
+    if (notificationValue === 0 || notificationValue < 0) {
+      setDisplayNotification("false");
+      console.log(notificationValue);
+    } else {
+      setDisplayNotification("true");
+      console.log(notificationValue);
+    }
+  };
+
+  useEffect(() => {
+    updateNotifcationHandler();
+  });
+
   return (
     <div className="navbar">
       <div className="nav">

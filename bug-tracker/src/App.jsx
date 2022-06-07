@@ -72,14 +72,6 @@ export default function App() {
     setBugList((bugList) => [...bugList, bug]);
   };
 
-  const updateNotifcationHandler = () => {
-    if (notificationValue === 0 || notificationValue < 0) {
-      setDisplayNotification("false");
-    } else {
-      setDisplayNotification("true");
-    }
-  };
-
   const displayPopupHandler = () => {
     setDisplayPopup(true);
     popUpRef.current = setTimeout(() => {
@@ -112,11 +104,10 @@ export default function App() {
   };
 
   useEffect(() => {
-    // Update our notification Value
-    updateNotifcationHandler();
     // Clear the intervel when timer runs out
-
-    return () => clearTimeout(popUpRef.current);
+    return () => {
+      clearTimeout(popUpRef.current);
+    };
   }, []);
 
   return (
@@ -125,6 +116,7 @@ export default function App() {
         setNotificationValue={setNotificationValue}
         notificationValue={notificationValue}
         displayNotifcation={displayNotification}
+        setDisplayNotification={setDisplayNotification}
       ></Navbar>
       <Routes>
         <Route
