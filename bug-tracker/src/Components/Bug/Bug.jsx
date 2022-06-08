@@ -1,9 +1,19 @@
 import React from "react";
 import IconButton from "../IconButton/IconButton";
-
+import { Link } from "react-router-dom";
 import "./Bug.scss";
 
-export default function Bug({ title, description, steps, version, date, bugData ,getPriorityHandler, resolveBugHandler, editBugHandler}) {
+export default function Bug({
+  title,
+  description,
+  steps,
+  version,
+  date,
+  bugData,
+  getPriorityHandler,
+  resolveBugHandler,
+  editBugHandler,
+}) {
   return (
     <div className={`bug ${getPriorityHandler(bugData)}`}>
       <div className="title-version">
@@ -18,8 +28,19 @@ export default function Bug({ title, description, steps, version, date, bugData 
       <p className="bug-text">{steps}</p>
       <div className="bottom-container">
         <div className="button-container">
-          <IconButton icon="fa-solid fa-pen-to-square" text="Edit" buttonClick={(e)=> editBugHandler(bugData)}/>
-          <IconButton icon="fa-solid fa-check" buttonClick={(e)=> resolveBugHandler(bugData, bugData.priority)} text="Resolve" />
+          <Link className="link" to="EditBug">
+            <IconButton
+              icon="fa-solid fa-pen-to-square"
+              text="Edit"
+              buttonClick={(e) => editBugHandler(bugData)}
+            />
+          </Link>
+
+          <IconButton
+            icon="fa-solid fa-check"
+            buttonClick={(e) => resolveBugHandler(bugData, bugData.priority)}
+            text="Resolve"
+          />
         </div>
         <span>
           <p>{date}</p>
