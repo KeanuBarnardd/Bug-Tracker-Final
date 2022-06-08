@@ -10,6 +10,7 @@ export default function Dashboard({
   getPriorityHandler,
   resolveBugHandler,
   bugDataCount,
+  editBugHandler
 }) {
   const [filterPriority, setFilterPriority] = useState("all");
 
@@ -34,6 +35,7 @@ export default function Dashboard({
       bugData={bug}
       getPriorityHandler={getPriorityHandler}
       resolveBugHandler={resolveBugHandler}
+      editBugHandler={editBugHandler}
     />
   ));
 

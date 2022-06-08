@@ -5,6 +5,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddBug from "./Pages/AddBug/AddBug";
 import Profile from "./Pages/Profile/Profile";
 import Settings from "./Pages/Settings/Settings";
+import EditBug from "./Pages/EditBug/EditBug";
 import "./Styles/general.scss";
 
 export default function App() {
@@ -50,7 +51,12 @@ export default function App() {
     }
   };
 
+  const editBugHandler = (bugData) => {
+    console.log(bugData.title, "is current Bug");
+  };
+
   const resolveBugHandler = (bugData, status) => {
+    alert("Are you sure you want to resolve bug");
     // Update our Resolved Bug List....
     const resolveDate = getDate();
     // Add Bug to resolvedList
@@ -143,6 +149,7 @@ export default function App() {
               resolveBugHandler={resolveBugHandler}
               updateCount={updateCount}
               bugDataCount={bugDataCount}
+              editBugHandler={editBugHandler}
             />
           }
         />
@@ -163,6 +170,7 @@ export default function App() {
           element={<Profile bugDataCount={bugDataCount} resolvedBugs={resolvedBugs} />}
         />
         <Route path="/Settings" element={<Settings />} />
+        <Route path="/EditBug" element={<EditBug />} />
       </Routes>
     </div>
   );

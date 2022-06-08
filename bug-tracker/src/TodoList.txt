@@ -10,6 +10,11 @@ Todo List for Application
 - Create a resolved bugs list section (Done)
     - Add bug title to a list of resolved bugs
 - Make bugs editable
+    - Get our current bug we are editing 
+    - Return to our AddBug page 
+    - Update all values to have our current index bug value's
+    - If cancel then just return back to dashboard 
+    - If confirm then delete old bug and insert new bug.
 
 
 
