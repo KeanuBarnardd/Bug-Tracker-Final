@@ -13,10 +13,8 @@ export default function Navbar({
   const updateNotifcationHandler = () => {
     if (notificationValue === 0 || notificationValue < 0) {
       setDisplayNotification("false");
-      console.log(notificationValue);
     } else {
       setDisplayNotification("true");
-      console.log(notificationValue);
     }
   };
 

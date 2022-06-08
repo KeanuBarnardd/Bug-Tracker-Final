@@ -1,0 +1,22 @@
+@import "../../Styles/variables.scss";
+
+.resolved-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: $pad-1;
+  border-left: $card-border-left;
+  border-color: $col-resolved;
+  box-shadow: $shadow-soft;
+  p {
+    display: flex;
+    gap: 10px;
+    color: $dark-grey;
+    span {
+      background-color: $col-resolved;
+      padding: 0 $pad-1;
+      color: #fff;
+      
+    }
+  }
+}

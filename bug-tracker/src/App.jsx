@@ -24,6 +24,7 @@ export default function App() {
     high: 0,
     resolved: 0,
   });
+  const [resolvedBugs, setResolvedBugs] = useState([]);
 
   // Notification & Popup States
   const [displayNotification, setDisplayNotification] = useState("false");
@@ -49,9 +50,22 @@ export default function App() {
     }
   };
 
-  const resolveBugHandler = (id, status) => {
+  const resolveBugHandler = (bugData, status) => {
+    // Update our Resolved Bug List....
+    const resolveDate = getDate();
+    // Add Bug to resolvedList
+    setResolvedBugs((resolvedBugs) => [
+      ...resolvedBugs,
+      {
+        title: bugData.title,
+        date: resolveDate,
+        id: bugData.id,
+      },
+    ]);
+
+    // Update our Bug List...
     let newList = bugList;
-    newList.splice(getBugIndex(id), 1);
+    newList.splice(getBugIndex(bugData.id), 1);
     setBugList([...newList]);
     updateCount(status, true);
     updateCount("resolved", false);
@@ -144,16 +158,30 @@ export default function App() {
             />
           }
         />
-        <Route path="/Profile" element={<Profile />} />
+        <Route
+          path="/Profile"
+          element={<Profile bugDataCount={bugDataCount} resolvedBugs={resolvedBugs} />}
+        />
         <Route path="/Settings" element={<Settings />} />
       </Routes>
     </div>
   );
 }
 
+// EXTERNAL FUNCTIONS
 const generateRandomId = () => {
   var text = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   for (var i = 0; i < 20; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
   return text;
+};
+
+const getDate = () => {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = mm + "/" + dd + "/" + yyyy;
+  return today;
 };

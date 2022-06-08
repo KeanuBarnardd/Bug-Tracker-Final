@@ -79,3 +79,9 @@ button {
   width: 100%;
   height: 100%;
 }
+
+.bug-grid{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

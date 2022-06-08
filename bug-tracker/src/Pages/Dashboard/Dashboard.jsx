@@ -39,7 +39,7 @@ export default function Dashboard({
 
   const displayNoBugContainer = (
     <div className="no-bug-container">
-      <h2>Currently have no bugs click here to add. </h2>
+      <h2>Currently have no bugs to display. </h2>
       <button className="gen-btn">
         <Link className="link" to={"addBug"}>
           <p>

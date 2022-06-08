@@ -7,8 +7,9 @@ Todo List for Application
 - Bug create notification (done)
 - Fix error with type is not a function (done)
 - Display a message that says you have no bugs click to add here (Done)
-- Create a resolved bugs list section (In progress)
+- Create a resolved bugs list section (Done)
     - Add bug title to a list of resolved bugs
+- Make bugs editable
 
 
 

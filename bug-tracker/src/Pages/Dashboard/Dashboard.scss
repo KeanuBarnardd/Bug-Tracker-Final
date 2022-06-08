@@ -10,17 +10,12 @@
   margin-top: 2.5rem;
 }
 
-.bug-grid{
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
+
 
 .no-bug-container{
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  //box-shadow: $shadow-soft;
+  gap: 10px;
   border-left: $card-border-left;
   padding: $pad-1;
 }
