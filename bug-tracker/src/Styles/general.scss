@@ -46,7 +46,36 @@ select:hover {
   color: white;
 }
 
-button{
+button {
   border: none;
   background-color: $light-grey;
+}
+
+.gen-btn {
+
+  display: flex;
+  gap: 10px;
+  color: $dark-grey;
+  transition: $trans-gen;
+  p {
+    display: flex;
+    align-items: center;
+    padding: $pad-1;
+    gap: 10px;
+  }
+}
+
+.gen-btn:hover {
+  background-color: $dark-grey;
+  cursor: pointer;
+  p {
+    color: #fff;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: $dark-grey;
+  width: 100%;
+  height: 100%;
 }

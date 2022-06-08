@@ -4,8 +4,12 @@ export default function Profile(){
   return(
     <div className="profile content">
       <div className="content-view">
-        
-        </div>
+        <h1>All resolved Bugs</h1>
+
+      
+
+
+      </div>
     </div>
   )
 }

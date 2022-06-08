@@ -6,13 +6,9 @@ Todo List for Application
 - Add a notification display when bug is added reset on link click.(Done)
 - Bug create notification (done)
 - Fix error with type is not a function (done)
-- Create a resolved bugs list section 
-
-
-
-
-
-
+- Display a message that says you have no bugs click to add here (Done)
+- Create a resolved bugs list section (In progress)
+    - Add bug title to a list of resolved bugs
 
 
 
