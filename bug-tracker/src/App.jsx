@@ -19,6 +19,16 @@ export default function App() {
     version: "0",
     id: generateRandomId(),
   });
+  const [bugSaved, setBugSaved] = useState({
+    title: "",
+    description: "",
+    steps: "",
+    priority: "low",
+    date: "00/00/00",
+    version: "0",
+    id: "",
+  });
+
   const [bugDataCount, setBugDataCount] = useState({
     low: 0,
     medium: 0,
@@ -52,7 +62,47 @@ export default function App() {
   };
 
   const editBugHandler = (bugData) => {
-    console.log(bugData.title, "is current Bug");
+    setBug({
+      title: bugData.title,
+      description: bugData.description,
+      steps: bugData.steps,
+      priority: bugData.priority,
+      date: bugData.date,
+      version: bugData.version,
+      id: bugData.id,
+    });
+
+    // Save these values so if our user decides to cancel we will just restore
+    setBugSaved({
+      title: bugData.title,
+      description: bugData.description,
+      steps: bugData.steps,
+      priority: bugData.priority,
+      date: bugData.date,
+      version: bugData.version,
+      id: bugData.id,
+    });
+  };
+
+  const confirmEdit = (bug) => {
+    console.log("Edits have been changed");
+    console.log(bug.id);
+    deleteBug(bug.id);
+    console.log(bug.id);
+  };
+
+  const cancelEdit = (bug) => {
+    console.log("Edits have been canceled");
+    console.log(bug.id);
+    deleteBug(bug.id);
+    console.log(bug.id);
+  };
+
+  const deleteBug = (bugData) => {
+    console.log("Delete Bug");
+    let newList = bugList;
+    newList.splice(getBugIndex(bugData.id), 1);
+    setBugList([...newList]);
   };
 
   const resolveBugHandler = (bugData, status) => {
@@ -70,9 +120,7 @@ export default function App() {
     ]);
 
     // Update our Bug List...
-    let newList = bugList;
-    newList.splice(getBugIndex(bugData.id), 1);
-    setBugList([...newList]);
+    deleteBug(bugData.id);
     updateCount(status, true);
     updateCount("resolved", false);
   };
@@ -170,7 +218,20 @@ export default function App() {
           element={<Profile bugDataCount={bugDataCount} resolvedBugs={resolvedBugs} />}
         />
         <Route path="/Settings" element={<Settings />} />
-        <Route path="/EditBug" element={<EditBug />} />
+        <Route
+          path="/EditBug"
+          element={
+            <EditBug
+              bug={bug}
+              getInputHandler={getInputHandler}
+              getPriorityHandler={getPriorityHandler}
+              confirmEdit={confirmEdit}
+              cancelEdit={cancelEdit}
+              setBugSaved={setBugSaved}
+              bugSaved={bugSaved}
+            />
+          }
+        />
       </Routes>
     </div>
   );
