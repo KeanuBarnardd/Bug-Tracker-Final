@@ -14,9 +14,8 @@ Todo List for Application
     - Return to our AddBug page (done)
     - Update all values to have our current index bug value's (done)
     - If cancel then just return back to dashboard (done)
-    - Save all the values into a seperate saved value
-    - If confirm then delete old bug and insert new bug.
-
+    - Save all the values into a seperate saved value (done)
+    - If confirm then delete old bug and insert new bug. (done)
 
 
 Brain storm 

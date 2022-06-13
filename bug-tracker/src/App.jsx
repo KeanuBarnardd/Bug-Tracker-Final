@@ -57,7 +57,7 @@ export default function App() {
     if (index !== -1) {
       return index;
     } else {
-      return console.error("Cannot find Bug ID");
+      return console.warn("Cannot find Bug ID");
     }
   };
 
@@ -84,18 +84,16 @@ export default function App() {
     });
   };
 
-  const confirmEdit = (bug) => {
-    console.log("Edits have been changed");
-    console.log(bug.id);
-    deleteBug(bug.id);
-    console.log(bug.id);
+  const confirmEdit = (b) => {
+    deleteBug(b.id);
+    // Dete bug and add new bug with new saved changes.
+    setBugList((bugList) => [...bugList, bug]);
   };
 
-  const cancelEdit = (bug) => {
-    console.log("Edits have been canceled");
-    console.log(bug.id);
-    deleteBug(bug.id);
-    console.log(bug.id);
+  const cancelEdit = (b) => {
+    deleteBug(b.id);
+    // Delete the bug and re add a new bug with the exsisting saved Values.
+    setBugList((bugList) => [...bugList, bugSaved]);
   };
 
   const deleteBug = (bugData) => {
