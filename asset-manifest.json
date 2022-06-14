@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Bug-Tracker-Final/static/css/main.49d57eb6.css",
+    "main.js": "/Bug-Tracker-Final/static/js/main.b65c34d6.js",
+    "index.html": "/Bug-Tracker-Final/index.html",
+    "main.49d57eb6.css.map": "/Bug-Tracker-Final/static/css/main.49d57eb6.css.map",
+    "main.b65c34d6.js.map": "/Bug-Tracker-Final/static/js/main.b65c34d6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.49d57eb6.css",
+    "static/js/main.b65c34d6.js"
+  ]
+}
