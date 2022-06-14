@@ -16,6 +16,7 @@ Todo List for Application
     - If cancel then just return back to dashboard (done)
     - Save all the values into a seperate saved value (done)
     - If confirm then delete old bug and insert new bug. (done)
+- Check 
 
 
 Brain storm 
