@@ -1,6 +1,6 @@
 # Bug Tracker 
 
-Still a work in progress project. Looking to add local storage features or a database to store all the data for the bugs. Currently finished as a simple front end C.R.U.D application and can viewed here. https://enchanting-axolotl-d17fee.netlify.app/
+Still a work in progress project. Looking to add local storage features or a database to store all the data for the bugs. Currently finished as a simple front end C.R.U.D application and can viewed here. 
 
 ## How it works
 This is a front end web application built with React, the application allows users to keep track and log bugs they have on their personal projects. Creating a new bug log prompts users to add specific information to define and categorise the bug. Allowing the user to neatly organise and understand which logs need to be completed and how they need to be solved. 
